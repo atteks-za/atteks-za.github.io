@@ -20,7 +20,7 @@ window.addEventListener('scroll', () => {
 
 // Pagination
 const PER = 6;
-const state = { cloud: { cur: 1 }, devops: { cur: 1 } };
+const state = { cloud: { cur: 1 }, networks: { cur: 1 }, devops: { cur: 1 } };
 
 function render(key) {
   const items = [...document.querySelectorAll('#' + key + '-list li')];
@@ -40,7 +40,7 @@ window.pg = function(key, dir) {
   render(key);
 };
 
-['cloud', 'devops'].forEach(render);
+['cloud', 'networks', 'devops'].forEach(render);
 
 // Fade in on scroll
 const io = new IntersectionObserver(entries =>
