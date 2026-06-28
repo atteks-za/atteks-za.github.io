@@ -82,33 +82,62 @@
   </section>
 
   <!-- 02 COMPUTER NETWORKING -->
-  <section class="section s-networks fade-up" id="networks">
-    <div class="section-header">
-      <div class="section-num">02</div>
-      <div>
-        <div class="section-tag">Domain</div>
-        <h2 class="section-h2"><i class="fa-solid fa-network-wired"></i> Computer Networking</h2>
-        <p class="section-desc">Building secure and scalable network environments through routing, switching, IP addressing, network architecture, wireless solutions, firewall deployment and troubleshooting across enterprise infrastructure.</p>
-      </div>
+<section class="section s-networks fade-up" id="networks">
+  <div class="section-header">
+    <div class="section-num">02</div>
+    <div>
+      <div class="section-tag">Domain</div>
+      <h2 class="section-h2"><i class="fa-solid fa-network-wired"></i> Computer Networking</h2>
+      <p class="section-desc">
+        Designing and implementing secure, scalable network environments through routing, 
+        switching, VLAN segmentation, IP addressing, firewall deployment, NAT, DHCP, 
+        and enterprise network troubleshooting.
+      </p>
     </div>
-    </div>
-    <ul class="proj-grid" id="cloud-list">
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/blob/AWS-Bootcamp/Identity%20&%20Access%20Management%20with%20AWS%20Identity%20Center/readme.md" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Identity &amp; Access Management with AWS Identity Center</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/blob/AWS-Bootcamp/Deploying%20a%20Secure%20Windows%20EC2%20Instance/readme.md" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Deploying a Secure Windows EC2 Instance</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/AWS-Bootcamp/Multi-VPC%20Networking%20&%20Peering%20Configuration" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Multi-VPC Networking &amp; Peering Configuration</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/blob/AWS-Bootcamp/Containerized%20Grafana%20Dashboard%20on%20ECS%20Fargate/readme.md" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Containerized Grafana Dashboard on ECS Fargate</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/blob/AWS-Bootcamp/ECS-Hosted%20Metabase%20Connected%20to%20Amazon%20RDS/readme.md" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>ECS-Hosted Metabase Connected to Amazon RDS</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/blob/AWS-Bootcamp/CloudWatch%20Monitoring%20Dashboard%20for%20ECS%20Application/readme.md" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>CloudWatch Monitoring Dashboard for ECS Application</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/blob/AWS-Bootcamp/Static%20Portfolio%20Website%20with%20S3%20&%20CloudFront/readme.md" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Static Portfolio Website with S3 &amp; CloudFront</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/blob/AWS-Bootcamp/Secure%20Custom%20Domain%20Hosting%20with%20Route%2053,%20CloudFront%20&%20ACM/readme.md" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Secure Custom Domain Hosting with Route 53, CloudFront &amp; ACM</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/blob/AWS-Bootcamp/Serverless%20Automation%20with%20S3%20Event%20Triggers%20&%20Lambda/readme.md" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Serverless Automation with S3 Event Triggers &amp; Lambda</a></li>
-    </ul>
-    <div class="pag">
-      <button class="pag-btn" id="cloud-prev" onclick="pg('cloud',-1)" disabled><i class="fa-solid fa-chevron-left"></i> Prev</button>
-      <span class="pag-info" id="cloud-info"></span>
-      <button class="pag-btn" id="cloud-next" onclick="pg('cloud',1)">Next <i class="fa-solid fa-chevron-right"></i></button>
-    </div>
-  </section>
+  </div>
+
+  <ul class="proj-grid" id="network-list">
+    <li>
+      <a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/Networking/ISP%20Router%20Simulation%20with%20NAT" target="_blank">
+        <i class="fa-solid fa-arrow-right arr"></i>
+        ISP Router Simulation with NAT
+      </a>
+    </li>
+
+    <li>
+      <a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/Networking/FortiGate%20Edge%20Firewall%20%26%20Policy%20Routing" target="_blank">
+        <i class="fa-solid fa-arrow-right arr"></i>
+        FortiGate Edge Firewall & Policy Routing
+      </a>
+    </li>
+
+    <li>
+      <a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/Networking/Inter-VLAN%20Routing%20%26%20DHCP%20(CSR-HQ-01)" target="_blank">
+        <i class="fa-solid fa-arrow-right arr"></i>
+        Inter-VLAN Routing & DHCP (CSR-HQ-01)
+      </a>
+    </li>
+
+    <li>
+      <a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/Networking/VLAN%20Segmentation%20with%20Cisco%20vIOS-L2" target="_blank">
+        <i class="fa-solid fa-arrow-right arr"></i>
+        VLAN Segmentation with Cisco vIOS-L2
+      </a>
+    </li>
+  </ul>
+
+  <div class="pag">
+    <button class="pag-btn" id="network-prev" onclick="pg('network',-1)" disabled>
+      <i class="fa-solid fa-chevron-left"></i> Prev
+    </button>
+
+    <span class="pag-info" id="network-info"></span>
+
+    <button class="pag-btn" id="network-next" onclick="pg('network',1)">
+      Next <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
+</section>
 
   <!-- 03 CYBERSECURITY -->
   <section class="section s-cyber fade-up" id="cyber">
