@@ -1,5 +1,4 @@
 document.getElementById('yr').textContent = new Date().getFullYear();
-
 // Theme toggle
 const btn = document.getElementById('themeBtn');
 btn.addEventListener('click', () => {
@@ -8,7 +7,6 @@ btn.addEventListener('click', () => {
     ? '<i class="fa-solid fa-sun"></i>'
     : '<i class="fa-solid fa-moon"></i>';
 });
-
 // Active nav on scroll
 const navLinks = document.querySelectorAll('.nav-item[href^="#"]');
 const sections = [...navLinks].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
@@ -17,11 +15,9 @@ window.addEventListener('scroll', () => {
   sections.forEach(s => { if (window.scrollY >= s.offsetTop - 140) cur = s; });
   navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur.id));
 }, { passive: true });
-
 // Pagination
 const PER = 6;
-const state = { cloud: { cur: 1 }, networks: { cur: 1 }, devops: { cur: 1 } };
-
+const state = { cloud: { cur: 1 }, networks: { cur: 1 }, cyber: { cur: 1 }, devops: { cur: 1 }, admin: { cur: 1 } };
 function render(key) {
   const items = [...document.querySelectorAll('#' + key + '-list li')];
   const total = Math.max(1, Math.ceil(items.length / PER));
@@ -32,16 +28,13 @@ function render(key) {
   document.getElementById(key + '-prev').disabled = cur === 1;
   document.getElementById(key + '-next').disabled = cur === total;
 }
-
 window.pg = function(key, dir) {
   const items = document.querySelectorAll('#' + key + '-list li');
   const total = Math.max(1, Math.ceil(items.length / PER));
   state[key].cur = Math.min(Math.max(1, state[key].cur + dir), total);
   render(key);
 };
-
-['cloud', 'networks', 'devops'].forEach(render);
-
+['cloud', 'networks', 'cyber', 'devops', 'admin'].forEach(render);
 // Fade in on scroll
 const io = new IntersectionObserver(entries =>
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); }),
