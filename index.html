@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="stylesheet" href="styles.css?v=20260926b"/>
+  <link rel="stylesheet" href="styles.css?v=20260926c"/>
 
   <script>
     /* Apply the saved or system theme before first paint, so there is no flash */
@@ -56,8 +56,8 @@
   }
   </script>
 
-  <script src="data.js?v=20260926b" defer></script>
-  <script src="script.js?v=20260926b" defer></script>
+  <script src="data.js?v=20260926c" defer></script>
+  <script src="script.js?v=20260926c" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -96,7 +96,12 @@
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="container hero-grid">
       <div class="hero-copy">
-        <div class="status-pill"><span class="pulse"></span> Based in South Africa</div>
+        <div class="hero-meta">
+          <div class="status-pill"><span class="pulse"></span> Based in South Africa</div>
+          <div class="status-pill views-pill" id="views" hidden title="Visits to this portfolio">
+            <i class="fa-regular fa-eye"></i><span><strong id="viewCount">0</strong> portfolio views</span>
+          </div>
+        </div>
         <h1 class="hero-title">
           Building reliable, secure infrastructure, from the <span class="grad">network edge</span> to the <span class="grad">cloud</span>.
         </h1>

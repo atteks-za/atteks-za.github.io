@@ -80,6 +80,43 @@ $$('[data-stat]').forEach(el => {
   })(t0);
 });
 
+/* ── View counter (Abacus, free, no account) ──
+   Counts once per browser session so refreshes don't inflate it.
+   Only the live domain adds to the count; local previews just read it. */
+(async function viewCounter() {
+  const API = 'https://abacus.jasoncameron.dev';
+  const KEY = 'pepsnet-portfolio/views';
+  const isLive = location.hostname === 'portfolio.pepsnet.co.za';
+  let counted = false;
+  try { counted = sessionStorage.getItem('viewCounted') === '1'; } catch (e) {}
+  const action = isLive && !counted ? 'hit' : 'get';
+
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 5000);
+  try {
+    const res = await fetch(API + '/' + action + '/' + KEY, { signal: ctrl.signal });
+    if (!res.ok) return;
+    const { value } = await res.json();
+    if (typeof value !== 'number') return;
+    if (action === 'hit') { try { sessionStorage.setItem('viewCounted', '1'); } catch (e) {} }
+
+    const el = $('#viewCount');
+    const fmt = n => n.toLocaleString('en-ZA');
+    $('#views').hidden = false;
+    if (reduceMotion || value < 10) { el.textContent = fmt(value); return; }
+    const t0 = performance.now(), dur = 1200;
+    (function tick(now) {
+      const p = Math.min(1, (now - t0) / dur);
+      el.textContent = fmt(Math.round(value * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+  } catch (e) {
+    // Counter unavailable: keep the badge hidden
+  } finally {
+    clearTimeout(timer);
+  }
+})();
+
 /* ── Projects ───────────────────────────────── */
 const PER_PAGE = 9;
 const state = { domain: 'all', q: '', page: 1 };

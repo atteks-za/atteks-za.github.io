@@ -193,6 +193,11 @@ html.dark .btn-primary { color: #06101f; }
   background: var(--surface); border: 1px solid var(--border);
   font-size: 0.82rem; color: var(--text-2); box-shadow: var(--shadow-sm);
 }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 10px; }
+.views-pill[hidden] { display: none; }
+.views-pill { animation: pop 0.3s ease; }
+.views-pill i { color: var(--primary); font-size: 0.85rem; }
+.views-pill strong { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
 .pulse { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; position: relative; }
 .pulse::after {
   content: ''; position: absolute; inset: 0; border-radius: 50%; background: #22c55e;
