@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Page not found | Athenkosi Pepengweni</title>
+  <meta name="robots" content="noindex"/>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="/styles.css"/>
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      if (t === 'dark') document.documentElement.classList.add('dark');
+    })();
+  </script>
+  <style>
+    .nf { min-height: 100vh; display: grid; place-items: center; text-align: center; padding: 24px; }
+    .nf .code { font: 700 clamp(5rem, 18vw, 9rem)/1 var(--font-head); letter-spacing: -0.04em; }
+    .nf p { color: var(--muted); margin: 12px 0 28px; }
+    .nf .terminal-line { font-family: var(--font-mono); font-size: 0.9rem; color: var(--primary); }
+  </style>
+</head>
+<body>
+  <main class="nf">
+    <div>
+      <div class="terminal-line">$ ping this-page<br>Request timed out.</div>
+      <div class="code grad">404</div>
+      <p>That page doesn’t exist, or it has moved.</p>
+      <a class="btn btn-primary" href="/"><i class="fa-solid fa-house"></i> Back to the portfolio</a>
+    </div>
+  </main>
+</body>
+</html>

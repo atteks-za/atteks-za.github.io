@@ -3,12 +3,33 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Athenkosi Pepengweni | Portfolio</title>
-  <meta name="description" content="IT infrastructure, networking, cloud, DevOps and cybersecurity portfolio of Athenkosi Pepengweni."/>
+  <title>Athenkosi Pepengweni | IT Infrastructure, Networking &amp; Cloud</title>
+  <meta name="description" content="Portfolio of Athenkosi Pepengweni, an IT infrastructure professional in South Africa. Hands-on projects in enterprise networking, Windows Server, AWS, DevOps and cybersecurity."/>
+  <meta name="author" content="Athenkosi Pepengweni"/>
+  <link rel="canonical" href="https://portfolio.pepsnet.co.za/"/>
   <meta name="color-scheme" content="light dark"/>
-  <meta name="theme-color" content="#ffffff"/>
+  <meta name="theme-color" content="#f8fafc"/>
+
+  <!-- Social sharing -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://portfolio.pepsnet.co.za/"/>
+  <meta property="og:title" content="Athenkosi Pepengweni | IT Infrastructure, Networking &amp; Cloud"/>
+  <meta property="og:description" content="Hands-on projects in enterprise networking, Windows Server, AWS, DevOps and cybersecurity."/>
+  <meta property="og:image" content="https://portfolio.pepsnet.co.za/profile.jpg"/>
+  <meta name="twitter:card" content="summary"/>
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <link rel="apple-touch-icon" href="profile.jpg"/>
+  <link rel="manifest" href="site.webmanifest"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+
   <script>
-    /* Set the theme before first paint so there is no flash */
+    /* Apply the saved or system theme before first paint, so there is no flash */
     (function () {
       var t = null;
       try { t = localStorage.getItem('theme'); } catch (e) {}
@@ -16,237 +37,264 @@
       if (t === 'dark') document.documentElement.classList.add('dark');
     })();
   </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css"/>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Athenkosi Pepengweni",
+    "url": "https://portfolio.pepsnet.co.za/",
+    "image": "https://portfolio.pepsnet.co.za/profile.jpg",
+    "jobTitle": "IT Infrastructure Professional",
+    "address": { "@type": "PostalAddress", "addressCountry": "ZA" },
+    "email": "mailto:athenkosi.peps@gmail.com",
+    "sameAs": [
+      "https://github.com/atteks-za",
+      "https://www.linkedin.com/in/athenkosi-pepengweni-036443183/"
+    ],
+    "knowsAbout": ["Network Engineering", "FortiGate", "Cisco IOS-XE", "Windows Server", "Active Directory", "AWS", "Kubernetes", "Terraform", "Cybersecurity"]
+  }
+  </script>
+
+  <script src="data.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <div id="progress" aria-hidden="true"></div>
 
-<!-- SIDEBAR -->
-<aside id="sidebar">
-  <div class="sb-top">
-    <img src="profile.jpg" alt="Athenkosi Pepengweni" class="profile-img"/>
-    <div class="sb-name">Athenkosi<br>Pepengweni</div>
-  </div>
-
-  <nav id="sidenav">
-    <div class="nav-label">Navigate</div>
-    <a class="nav-item active" href="#cloud"><i class="fa-solid fa-cloud ni ni-cloud"></i> Cloud Computing</a>
-    <a class="nav-item" href="#networks"><i class="fa-solid fa-network-wired ni ni-networks"></i> Computer Networking</a>
-    <a class="nav-item" href="#cyber"><i class="fa-solid fa-shield-halved ni ni-cyber"></i> Cybersecurity</a>
-    <a class="nav-item" href="#devops"><i class="fa-solid fa-gears ni ni-devops"></i> DevOps & Automation</a>
-    <a class="nav-item" href="#admin"><i class="fa-solid fa-server ni ni-admin"></i> System Administration & Infrastructure</a>
-    <a class="nav-item" href="#certs"><i class="fa-solid fa-certificate ni ni-certs"></i> Certificates</a>
-  </nav>
-
-  <div class="sb-footer">
-    <div class="soc-links">
-      <a href="https://github.com/atteks-za" target="_blank"><i class="fa-brands fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/athenkosi-pepengweni-036443183/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-    </div>
-    <button id="themeBtn" class="theme-toggle" type="button" title="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
-  </div>
-</aside>
-
-<!-- MAIN -->
-<main id="main">
-
-  <!-- HERO -->
-  <section id="hero" class="fade-up">
-    <div class="hero-eyebrow">Based in South Africa</div>
-    <h1 class="hero-h1">IT Infrastructure &amp;<br><em>Security</em><br>Portfolio</h1>
-    <p class="hero-sub">
-      Building resilient infrastructure, securing enterprise environments, and delivering reliable
-      IT solutions across <strong>Cloud</strong>, <strong>Cybersecurity</strong>, and <strong>DevOps</strong>.<br><br>
-      <a href="https://www.linkedin.com/in/athenkosi-pepengweni-036443183" target="_blank">Connect on LinkedIn →</a>
-    </p>
-    <a class="cv-btn" href="https://drive.google.com/file/d/1eYBBOo0nAGaHdhUYYPxO24yvY1Xd9f4y/view?usp=sharing" target="_blank">
-      <i class="fa-solid fa-file-download"></i> Download CV
+<!-- ── HEADER ── -->
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="Athenkosi Pepengweni, home">
+      <span class="brand-mark">AP</span>
+      <span class="brand-name">Athenkosi Pepengweni</span>
     </a>
 
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-num" data-stat="projects">0</span><span class="stat-label">Projects</span></div>
-      <div class="stat"><span class="stat-num" data-stat="domains">0</span><span class="stat-label">Domains</span></div>
-      <div class="stat"><span class="stat-num" data-stat="certs">0</span><span class="stat-label">Certifications</span></div>
-    </div>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-    <div class="search-wrap">
-      <i class="fa-solid fa-magnifying-glass search-icon"></i>
-      <input id="projSearch" type="search" placeholder="Search projects, e.g. FortiGate, Kubernetes, DNS" aria-label="Search projects" autocomplete="off"/>
-      <kbd class="search-kbd">/</kbd>
+    <div class="header-actions">
+      <button class="cmdk-btn" type="button" data-open-palette aria-label="Open command palette">
+        <i class="fa-solid fa-magnifying-glass"></i><span>Search</span><kbd>Ctrl K</kbd>
+      </button>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+      <button class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><i class="fa-solid fa-bars"></i></button>
     </div>
-    <div id="searchInfo" class="search-info" aria-live="polite"></div>
-  </section>
+  </div>
+</header>
 
-  <!-- 01 CLOUD COMPUTING -->
-  <section class="section s-cloud fade-up" id="cloud">
-    <div class="section-header">
-      <div class="section-num">01</div>
-      <div>
-        <div class="section-tag">Domain</div>
-        <h2 class="section-h2"><i class="fa-solid fa-cloud"></i> Cloud Computing</h2>
-        <p class="section-desc">Hands-on projects covering security, networking, containers, serverless &amp; monitoring across cloud platforms.</p>
-      </div>
-    </div>
-    <ul class="proj-grid" id="cloud-list">
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/blob/AWS-Bootcamp/Identity%20&%20Access%20Management%20with%20AWS%20Identity%20Center/readme.md" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Identity &amp; Access Management with AWS Identity Center</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/blob/AWS-Bootcamp/Deploying%20a%20Secure%20Windows%20EC2%20Instance/readme.md" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Deploying a Secure Windows EC2 Instance</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/AWS-Bootcamp/Multi-VPC%20Networking%20&%20Peering%20Configuration" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Multi-VPC Networking &amp; Peering Configuration</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/blob/AWS-Bootcamp/Containerized%20Grafana%20Dashboard%20on%20ECS%20Fargate/readme.md" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Containerized Grafana Dashboard on ECS Fargate</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/blob/AWS-Bootcamp/ECS-Hosted%20Metabase%20Connected%20to%20Amazon%20RDS/readme.md" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>ECS-Hosted Metabase Connected to Amazon RDS</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/blob/AWS-Bootcamp/CloudWatch%20Monitoring%20Dashboard%20for%20ECS%20Application/readme.md" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>CloudWatch Monitoring Dashboard for ECS Application</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/blob/AWS-Bootcamp/Static%20Portfolio%20Website%20with%20S3%20&%20CloudFront/readme.md" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Static Portfolio Website with S3 &amp; CloudFront</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/blob/AWS-Bootcamp/Secure%20Custom%20Domain%20Hosting%20with%20Route%2053,%20CloudFront%20&%20ACM/readme.md" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Secure Custom Domain Hosting with Route 53, CloudFront &amp; ACM</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/blob/AWS-Bootcamp/Serverless%20Automation%20with%20S3%20Event%20Triggers%20&%20Lambda/readme.md" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Serverless Automation with S3 Event Triggers &amp; Lambda</a></li>
-    </ul>
-    <div class="pag">
-      <button class="pag-btn" id="cloud-prev" onclick="pg('cloud',-1)" disabled><i class="fa-solid fa-chevron-left"></i> Prev</button>
-      <span class="pag-info" id="cloud-info"></span>
-      <button class="pag-btn" id="cloud-next" onclick="pg('cloud',1)">Next <i class="fa-solid fa-chevron-right"></i></button>
-    </div>
-  </section>
+<main id="main">
 
-  <!-- 02 COMPUTER NETWORKING -->
-  <section class="section s-networks fade-up" id="networks">
-    <div class="section-header">
-      <div class="section-num">02</div>
-      <div>
-        <div class="section-tag">Domain</div>
-        <h2 class="section-h2"><i class="fa-solid fa-network-wired"></i> Computer Networking</h2>
-        <p class="section-desc">
-          Designing and implementing secure, scalable network environments through
-          routing, switching, VLAN segmentation, IP addressing, firewall deployment,
-          NAT, DHCP, and enterprise network troubleshooting.
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="status-pill"><span class="pulse"></span> Based in South Africa</div>
+        <h1 class="hero-title">
+          Building reliable, secure infrastructure, from the <span class="grad">network edge</span> to the <span class="grad">cloud</span>.
+        </h1>
+        <p class="hero-lead">
+          I’m Athenkosi Pepengweni, an IT infrastructure professional. I design, build and document real lab
+          environments across <strong>enterprise networking</strong>, <strong>Windows Server</strong>,
+          <strong>AWS</strong>, <strong>DevOps</strong> and <strong>cybersecurity</strong>.
         </p>
+        <p class="hero-rotator" aria-live="polite">
+          <span class="mono">Currently focused on:</span>
+          <span class="rotator" id="rotator">FortiGate SD-WAN</span>
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#projects"><i class="fa-solid fa-layer-group"></i> View projects</a>
+          <a class="btn btn-ghost" href="https://drive.google.com/file/d/1eYBBOo0nAGaHdhUYYPxO24yvY1Xd9f4y/view?usp=sharing" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
+          <div class="hero-social">
+            <a class="icon-btn" href="https://github.com/atteks-za" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a class="icon-btn" href="https://www.linkedin.com/in/athenkosi-pepengweni-036443183/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <dl class="stats">
+          <div><dt>Projects</dt><dd data-stat="projects">0</dd></div>
+          <div><dt>Domains</dt><dd data-stat="domains">0</dd></div>
+          <div><dt>Certifications</dt><dd data-stat="certs">0</dd></div>
+        </dl>
       </div>
-    </div>
-    <ul class="proj-grid" id="networks-list">
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/Networking/ISP%20Router%20Simulation%20with%20NAT" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>ISP Router Simulation with NAT</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/Networking/FortiGate%20Edge%20Firewall%20%26%20Policy%20Routing" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>FortiGate Edge Firewall &amp; Policy Routing</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/Networking/Inter-VLAN%20Routing%20%26%20DHCP%20(CSR-HQ-01)" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Inter-VLAN Routing &amp; DHCP </a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/Networking/VLAN%20Segmentation%20with%20Cisco%20vIOS-L2" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>VLAN Segmentation with Cisco vIOS-L2</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/Networking/OSPF%20implementation" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>OSPF Dynamic Routing & VLAN Propagation</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/Networking/BGP%20ISP%20Peering%20%26%20Route%20Redistribution" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>BGP ISP Peering & Route Redistribution</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/Networking/FortiGate%20Site-to-Site%20VPN" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>FortiGate Site-to-Site VPN — HQ ↔ Branch</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/Networking/Enterprise%20FortiGate%20SD-WAN%20with%20IPsec%20VPN%20Failover%20(HQ%20%E2%86%94%20Branch)" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Enterprise FortiGate SD-WAN with IPsec VPN Failover (HQ ↔ Branch)</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/Networking/Multi-WAN-VLAN-Segmentation-Lab" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Ubiquiti UniFi Multi-WAN Load Balancing & VLAN Segmentation</a></li>
-      
-      
-    </ul>
-    <div class="pag">
-      <button class="pag-btn" id="networks-prev" onclick="pg('networks',-1)" disabled><i class="fa-solid fa-chevron-left"></i> Prev</button>
-      <span class="pag-info" id="networks-info"></span>
-      <button class="pag-btn" id="networks-next" onclick="pg('networks',1)">Next <i class="fa-solid fa-chevron-right"></i></button>
+
+      <div class="hero-visual">
+        <div class="photo-card">
+          <img src="profile.jpg" alt="Portrait of Athenkosi Pepengweni" width="734" height="706"/>
+        </div>
+        <div class="terminal" aria-hidden="true">
+          <div class="term-bar"><span></span><span></span><span></span><em>athenkosi@homelab: ~</em></div>
+          <pre><span class="p">$</span> whoami
+<span class="o">IT infrastructure · networking · cloud · security</span>
+<span class="p">$</span> ls ~/lab
+<span class="o">proxmox/  esxi/  fortigate/  aws/  k8s/</span>
+<span class="p">$</span> uptime<span class="cursor"></span></pre>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 03 CYBERSECURITY -->
-  <section class="section s-cyber fade-up" id="cyber">
-    <div class="section-header">
-      <div class="section-num">03</div>
-      <div>
-        <div class="section-tag">Domain</div>
-        <h2 class="section-h2"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</h2>
-        <p class="section-desc">Security monitoring, vulnerability management, threat detection, incident response, network security, and infrastructure monitoring.</p>
+  <!-- ── ABOUT ── -->
+  <section class="section" id="about">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">About</p>
+        <h2>I learn by building, and I document everything.</h2>
+        <p class="section-lead">
+          Every project here runs in my own home lab or AWS account: Proxmox and VMware ESXi hosts, FortiGate and
+          Cisco virtual appliances, a Windows Server domain, and cloud workloads on AWS. I build each one end to end,
+          troubleshoot it until it works, and write it up so someone else could rebuild it.
+        </p>
+      </header>
+
+      <div class="focus-grid">
+        <article class="focus-card reveal" style="--c: var(--c-networking)">
+          <i class="fa-solid fa-network-wired"></i>
+          <h3>Enterprise networking</h3>
+          <p>Routing (OSPF, BGP), VLAN design, NAT, firewall policy, IPsec VPNs and SD-WAN failover across FortiGate, Cisco and UniFi.</p>
+        </article>
+        <article class="focus-card reveal" style="--c: var(--c-sysadmin)">
+          <i class="fa-solid fa-server"></i>
+          <h3>Systems &amp; infrastructure</h3>
+          <p>Windows Server, Active Directory, DNS and DHCP, Exchange, virtualisation on ESXi and Proxmox, and backup with Veeam.</p>
+        </article>
+        <article class="focus-card reveal" style="--c: var(--c-cloud)">
+          <i class="fa-solid fa-cloud"></i>
+          <h3>Cloud &amp; DevOps</h3>
+          <p>AWS networking, containers on ECS and EKS, Infrastructure as Code with Terraform, CI/CD pipelines and observability.</p>
+        </article>
+        <article class="focus-card reveal" style="--c: var(--c-security)">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h3>Security</h3>
+          <p>Least-privilege access, network segmentation, and hands-on Active Directory attack paths to understand how to defend them.</p>
+        </article>
       </div>
-    </div>
-    <ul class="proj-grid" id="cyber-list">
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/blob/Cybersecurity/Active%20Directory%20Penetration%20Testing/TCMREADME%20(1).md"><i class="fa-solid fa-arrow-right arr"></i>Active Directory Penetration Testing</a></li>
-      
-    </ul>
-    <div class="pag">
-      <button class="pag-btn" id="cyber-prev" onclick="pg('cyber',-1)" disabled><i class="fa-solid fa-chevron-left"></i> Prev</button>
-      <span class="pag-info" id="cyber-info"></span>
-      <button class="pag-btn" id="cyber-next" onclick="pg('cyber',1)">Next <i class="fa-solid fa-chevron-right"></i></button>
     </div>
   </section>
 
-  <!-- 04 DEVOPS & AUTOMATION -->
-  <section class="section s-devops fade-up" id="devops">
-    <div class="section-header">
-      <div class="section-num">04</div>
-      <div>
-        <div class="section-tag">Domain</div>
-        <h2 class="section-h2"><i class="fa-solid fa-gears"></i> DevOps &amp; Automation</h2>
-        <p class="section-desc">CI/CD pipelines, Kubernetes, container orchestration, IaC with Terraform, and observability.</p>
+  <!-- ── SKILLS ── -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Skills</p>
+        <h2>Tools and technologies I work with</h2>
+        <p class="section-lead">Every item below is used in at least one of the projects on this page.</p>
+      </header>
+
+      <div class="skills-grid">
+        <div class="skill-group reveal" style="--c: var(--c-networking)">
+          <h3><i class="fa-solid fa-network-wired"></i> Networking</h3>
+          <ul><li>FortiGate</li><li>Cisco IOS-XE</li><li>Cisco vIOS-L2</li><li>Ubiquiti UniFi</li><li>MikroTik</li><li>OSPF</li><li>BGP</li><li>VLANs / 802.1Q</li><li>IPsec VPN</li><li>SD-WAN</li><li>NAT / PAT</li><li>Structured cabling</li></ul>
+        </div>
+        <div class="skill-group reveal" style="--c: var(--c-sysadmin)">
+          <h3><i class="fa-solid fa-server"></i> Systems &amp; virtualisation</h3>
+          <ul><li>Windows Server</li><li>Active Directory</li><li>DNS</li><li>DHCP</li><li>Exchange 2019</li><li>PowerShell</li><li>VMware ESXi</li><li>Proxmox VE</li><li>Veeam B&amp;R</li><li>Linux</li></ul>
+        </div>
+        <div class="skill-group reveal" style="--c: var(--c-cloud)">
+          <h3><i class="fa-solid fa-cloud"></i> Cloud (AWS)</h3>
+          <ul><li>VPC</li><li>EC2</li><li>IAM Identity Center</li><li>ECS / Fargate</li><li>EKS</li><li>RDS</li><li>Lambda</li><li>S3</li><li>CloudFront</li><li>Route 53</li><li>ACM</li><li>CloudWatch</li><li>SNS / SES</li></ul>
+        </div>
+        <div class="skill-group reveal" style="--c: var(--c-devops)">
+          <h3><i class="fa-solid fa-gears"></i> DevOps &amp; observability</h3>
+          <ul><li>Terraform</li><li>Docker</li><li>Kubernetes</li><li>Helm</li><li>Jenkins</li><li>SonarQube</li><li>Prometheus</li><li>Grafana</li><li>Git &amp; GitHub</li></ul>
+        </div>
+        <div class="skill-group reveal" style="--c: var(--c-security)">
+          <h3><i class="fa-solid fa-shield-halved"></i> Security</h3>
+          <ul><li>Kali Linux</li><li>AD enumeration</li><li>Kerberoasting</li><li>MITM6</li><li>Password cracking</li><li>Microsoft Sentinel &amp; Defender (SC-200)</li><li>Least privilege</li></ul>
+        </div>
       </div>
-    </div>
-    <ul class="proj-grid" id="devops-list">
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/DevOps/End-to-End%20CI/CD%20Pipeline%20for%20Node.js%20CRUD%20Application" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>End-to-End CI/CD Pipeline for Node.js CRUD Application</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/DevOps/Application%20Deployment%20on%20Kubernetes%20Cluster%20using%20AWS%20EKS" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Application Deployment on Kubernetes Cluster using AWS EKS</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/DevOps/Kubernetes%20Monitoring%20with%20Prometheus%20and%20Grafana" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Kubernetes Monitoring with Prometheus and Grafana</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/DevOps/Automated%20Infrastructure%20Provisioning%20with%20Terraform" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Automated Infrastructure Provisioning with Terraform</a></li>
-       <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/DevOps/mini-msp-center" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Cloud Ops Monitoring & Incident Response Platform</a></li>
-  
-    </ul>
-    <div class="pag">
-      <button class="pag-btn" id="devops-prev" onclick="pg('devops',-1)" disabled><i class="fa-solid fa-chevron-left"></i> Prev</button>
-      <span class="pag-info" id="devops-info"></span>
-      <button class="pag-btn" id="devops-next" onclick="pg('devops',1)" disabled>Next <i class="fa-solid fa-chevron-right"></i></button>
     </div>
   </section>
 
-  <!-- 05 SYSTEM ADMINISTRATION & INFRASTRUCTURE -->
-  <section class="section s-admin fade-up" id="admin">
-    <div class="section-header">
-      <div class="section-num">05</div>
-      <div>
-        <div class="section-tag">Domain</div>
-        <h2 class="section-h2"><i class="fa-solid fa-server"></i> System Administration &amp; Infrastructure</h2>
-        <p class="section-desc">Deploying, configuring, and managing Windows Server environments and core network services, including Active Directory, DNS, DHCP, and backup &amp; replication.</p>
+  <!-- ── PROJECTS ── -->
+  <section class="section" id="projects">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Projects</p>
+        <h2>Featured work</h2>
+        <p class="section-lead">Three builds that show the range: multi-site networking, cloud operations and offensive security.</p>
+      </header>
+      <div class="featured-grid" id="featured"></div>
+
+      <div class="all-projects">
+        <div class="toolbar reveal">
+          <div class="filters" role="tablist" aria-label="Filter projects by domain" id="filters"></div>
+          <label class="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="projSearch" type="search" placeholder="Search projects or tools" aria-label="Search projects" autocomplete="off"/>
+            <kbd>/</kbd>
+          </label>
+        </div>
+        <p class="result-info" id="resultInfo" aria-live="polite"></p>
+        <div class="project-grid" id="projectGrid"></div>
+        <nav class="pager" id="pager" aria-label="Project pages"></nav>
       </div>
-    </div>
-    <ul class="proj-grid" id="admin-list">
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/System-Administration-Infrastructure/Veeam%20Backup%20%26%20Replication" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Veeam Backup &amp; Replication</a></li>
-      <li><a class="proj-link" href="https://github.com/atteks-za/athenkosi-portfolio/tree/System-Administration-Infrastructure/Secondary%20DNS%20%26%20DHCP%20Server" target="_blank"><i class="fa-solid fa-arrow-right arr"></i>Secondary DNS &amp; DHCP Server with Zone Replication (Windows Server 2025)</a></li>
-    </ul>
-    <div class="pag">
-      <button class="pag-btn" id="admin-prev" onclick="pg('admin',-1)" disabled><i class="fa-solid fa-chevron-left"></i> Prev</button>
-      <span class="pag-info" id="admin-info"></span>
-      <button class="pag-btn" id="admin-next" onclick="pg('admin',1)">Next <i class="fa-solid fa-chevron-right"></i></button>
+
+      <noscript>
+        <p class="result-info">Turn on JavaScript to browse projects, or see them all on <a href="https://github.com/atteks-za/athenkosi-portfolio">GitHub</a>.</p>
+      </noscript>
     </div>
   </section>
 
-  <!-- 06 CERTIFICATES -->
-  <section class="section s-certs fade-up" id="certs">
-    <div class="section-header">
-      <div class="section-num">06</div>
-      <div>
-        <div class="section-tag">Credentials</div>
-        <h2 class="section-h2"><i class="fa-solid fa-certificate"></i> Certificates</h2>
-        <p class="section-desc">Certifications from industry-recognised bodies.</p>
-      </div>
+  <!-- ── CERTIFICATIONS ── -->
+  <section class="section section-alt" id="certifications">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Certifications</p>
+        <h2>Verified credentials</h2>
+        <p class="section-lead">Each badge links to the issuer’s verification page.</p>
+      </header>
+      <div class="cert-grid" id="certGrid"></div>
     </div>
-    <ul class="cert-grid">
-      <li><a class="cert-link" href="https://learn.cloudsecnetwork.com/cert/view/CSN-V4YBAICX" target="_blank"><span class="cert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" loading="lazy"/></span><span class="cert-text"><span class="cert-name">AWS Cloud Bootcamp</span><span class="cert-issuer">CloudSec Network</span></span></a></li>
-      <li><a class="cert-link" href="https://learn.microsoft.com/api/credentials/share/en-us/PepengweniAthenkosi-6414/C62CA2E24568FA61?sharingId=B604582EF6741134" target="_blank"><span class="cert-logo"><img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="Microsoft Certified Associate badge" loading="lazy"/></span><span class="cert-text"><span class="cert-name">Microsoft Certified: Security Operations Analyst Associate (SC-200)</span><span class="cert-issuer">Microsoft</span></span></a></li>
-      <li><a class="cert-link" href="https://www.credly.com/badges/6c3c45fa-1cdb-44a6-82ad-0595b4769c87/linked_in_profile" target="_blank"><span class="cert-logo"><img src="https://images.credly.com/images/80d8a06a-c384-42bf-ad36-db81bce5adce/blob" alt="CompTIA Security+ badge" loading="lazy"/></span><span class="cert-text"><span class="cert-name">CompTIA Security+</span><span class="cert-issuer">CompTIA</span></span></a></li>
-      <li><a class="cert-link" href="https://www.credly.com/badges/cbdffdff-107f-45bf-9859-950bfe8cfa06/linked_in_profile" target="_blank"><span class="cert-logo"><img src="https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png" alt="Azure Fundamentals badge" loading="lazy"/></span><span class="cert-text"><span class="cert-name">Microsoft Certified: Azure Fundamentals (AZ-900)</span><span class="cert-issuer">Microsoft</span></span></a></li>
-      <li><a class="cert-link" href="https://www.credly.com/badges/aa7a5c46-5703-464d-a64d-99fa5a4a5a97/public_url" target="_blank"><span class="cert-logo"><img src="https://images.credly.com/size/340x340/images/f28f1d88-428a-47f6-95b5-7da1dd6c1000/KCNA_badge.png" alt="KCNA badge" loading="lazy"/></span><span class="cert-text"><span class="cert-name">KCNA: Kubernetes and Cloud Native Associate</span><span class="cert-issuer">The Linux Foundation</span></span></a></li>
-      <li><a class="cert-link" href="https://drive.google.com/file/d/1jHgLu5hsMho_mLk92U0M7uyNKNEj9SWI/view?usp=sharing" target="_blank"><span class="cert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/Molex_Logo_Updated.svg" alt="Molex" loading="lazy"/></span><span class="cert-text"><span class="cert-name">BP130 &ndash; Advanced Structured Cabling Design &amp; Installation</span><span class="cert-issuer">Molex Connected Enterprise Solutions</span></span></a></li>
-    </ul>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div><h3>Location</h3><p>South Africa</p></div>
-    <div><h3>Email</h3><a href="mailto:athenkosi.peps@gmail.com">athenkosi.peps@gmail.com</a></div>
-    <div>
-      <h3>Social</h3>
-      <div class="foot-soc">
-        <a href="https://github.com/atteks-za/athenkosi-portfolio/tree/main" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/athenkosi-pepengweni-036443183/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+  <!-- ── CONTACT ── -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-card reveal">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Let’s work together</h2>
+          <p class="section-lead">
+            Working on something in network engineering, systems administration or cloud infrastructure?
+            I’d be glad to hear about it. Email is the fastest way to reach me.
+          </p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:athenkosi.peps@gmail.com"><i class="fa-solid fa-envelope"></i> athenkosi.peps@gmail.com</a>
+          <button class="btn btn-ghost" type="button" data-copy-email><i class="fa-regular fa-copy"></i> Copy email</button>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/athenkosi-pepengweni-036443183/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/atteks-za" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
       </div>
     </div>
-    <div class="copyright">&copy; <span id="yr"></span> Athenkosi Pepengweni</div>
-  </footer>
-
+  </section>
 </main>
 
-<button id="toTop" class="to-top" type="button" aria-label="Back to top" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
-<button class="theme-toggle theme-fab" type="button" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; <span id="yr"></span> Athenkosi Pepengweni · South Africa</p>
+    <p class="footer-hint">Press <kbd>Ctrl K</kbd> to search anything</p>
+  </div>
+</footer>
 
-<script src="script.js"></script>
+<!-- Command palette -->
+<dialog class="palette" id="palette" aria-label="Command palette">
+  <div class="palette-search">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input id="paletteInput" type="text" placeholder="Search projects, sections or actions…" autocomplete="off" aria-controls="paletteList"/>
+    <kbd>Esc</kbd>
+  </div>
+  <ul class="palette-list" id="paletteList" role="listbox"></ul>
+</dialog>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

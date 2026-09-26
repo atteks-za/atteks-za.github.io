@@ -1,0 +1,13 @@
+{
+  "name": "Athenkosi Pepengweni | Portfolio",
+  "short_name": "Athenkosi",
+  "description": "IT infrastructure, networking, cloud, DevOps and cybersecurity projects.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070b14",
+  "theme_color": "#2563eb",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "profile.jpg", "sizes": "706x706", "type": "image/jpeg" }
+  ]
+}
