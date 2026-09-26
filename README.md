@@ -11,6 +11,8 @@ Everything on the page comes from **`data.js`**:
 
 Counts, filters, pagination and search all update from this file on their own.
 
+> **After changing `styles.css`, `script.js` or `data.js`,** bump the `?v=` number on their links in `index.html` (for example `?v=20261001`). Otherwise visitors’ browsers can keep using the old cached files for up to 10 minutes, and the page will look broken.
+
 ## Features
 
 - Light and dark mode: follows the device setting, remembers a manual choice, and doesn't flash on load
