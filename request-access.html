@@ -72,15 +72,6 @@
     .msg.show { display: block; }
     .msg.ok { background: color-mix(in srgb, var(--c-sysadmin) 12%, transparent); color: var(--text); border: 1px solid color-mix(in srgb, var(--c-sysadmin) 40%, transparent); }
     .msg.err { background: color-mix(in srgb, var(--c-security) 10%, transparent); color: var(--text); border: 1px solid color-mix(in srgb, var(--c-security) 40%, transparent); }
-    .divider { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: .8rem; margin: 24px 0 16px; }
-    .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--border); }
-    .code-row { display: flex; gap: 10px; }
-    .code-row input {
-      flex: 1; min-width: 0; font: 500 .95rem var(--font-mono); letter-spacing: .04em; text-transform: uppercase;
-      color: var(--text); background: var(--surface-2); border: 1px solid var(--border-2); border-radius: var(--radius-sm); padding: 11px 13px;
-    }
-    .code-row input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
-    .code-row .btn { width: auto; flex: none; }
     .ra-foot { margin-top: 18px; text-align: center; color: var(--muted); font-size: .85rem; }
     .ra-foot a { color: var(--primary); }
     .ra-theme { position: fixed; top: 16px; right: 16px; }
@@ -91,8 +82,6 @@
     @media (max-width: 480px) {
       .row2 { grid-template-columns: 1fr; gap: 0; }
       .ra-card { padding: 20px; }
-      .code-row { flex-direction: column; }
-      .code-row .btn { width: 100%; }
     }
   </style>
 </head>
@@ -115,8 +104,8 @@
       </p>
       <ol class="ra-steps">
         <li><span>1</span> Send a request with your name and organisation.</li>
-        <li><span>2</span> I review it and reply to your email with an access code.</li>
-        <li><span>3</span> Enter the code below, or open the link I send you.</li>
+        <li><span>2</span> I review it, usually within a working day.</li>
+        <li><span>3</span> Once approved, you’ll get an email with a link to view the portfolio.</li>
       </ol>
     </section>
 
@@ -154,16 +143,6 @@
         <div class="msg" id="formMsg" role="status" aria-live="polite"></div>
       </form>
 
-      <div class="divider">Already approved?</div>
-      <form id="codeForm" novalidate>
-        <label class="field" for="accessCode" style="margin-bottom:8px"><span style="font-size:.85rem;font-weight:600;color:var(--text-2)">Access code</span></label>
-        <div class="code-row">
-          <input id="accessCode" type="text" autocomplete="off" spellcheck="false" placeholder="PEPS-XXXXXXXX" aria-label="Access code"/>
-          <button class="btn btn-ghost" type="submit"><i class="fa-solid fa-unlock"></i> Unlock</button>
-        </div>
-        <div class="msg" id="codeMsg" role="status" aria-live="polite"></div>
-      </form>
-
       <p class="ra-foot">Questions? <a href="mailto:athenkosi.peps@gmail.com">athenkosi.peps@gmail.com</a></p>
     </section>
   </div>
@@ -172,7 +151,8 @@
 <script>
 (function () {
   var OWNER_EMAIL = 'athenkosi.peps@gmail.com';
-  var ENDPOINT = 'https://formsubmit.co/ajax/' + OWNER_EMAIL;
+  /* Google Apps Script web app that emails you "Allow access" / "Deny" buttons */
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycby0MtulRtunReKA66-vslXkKOe2EtT28CtmQjz_Mma7peHuAo9igxhKVaTuPa1yPmaZ/exec';
 
   var $ = function (id) { return document.getElementById(id); };
 
@@ -195,7 +175,7 @@
 
   /* Arrived from an invite link with a wrong or outdated code */
   if (new URLSearchParams(location.search).get('invalid')) {
-    show($('codeMsg'), 'err', 'That access link is invalid or has expired. Request access again or enter the code you received.');
+    show($('formMsg'), 'err', 'That access link is invalid or has expired. Please request access again.');
   }
 
   /* Access request → email to the owner */
@@ -219,22 +199,16 @@
     btn.disabled = true;
     btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending…';
 
+    /* text/plain keeps this a "simple" request, which Apps Script accepts cross-origin */
     fetch(ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify({
-        _subject: 'Portfolio access request: ' + name + ' (' + org + ')',
-        _template: 'table',
-        _replyto: email,
-        _captcha: 'false',
-        'Request': name + ' from ' + org + ' is requesting to view your portfolio.',
-        'Name': name,
-        'Organisation': org,
-        'Email': email,
-        'Role': f.role.value.trim() || '-',
-        'Reason': f.reason.value.trim() || '-',
-        'Requested at': new Date().toString(),
-        'To approve': 'Reply to this email with the access code or invite link from your ACCESS-CODE.txt file.'
+        name: name,
+        organisation: org,
+        email: email,
+        role: f.role.value.trim(),
+        reason: f.reason.value.trim()
       })
     })
       .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, d: d }; }); })
@@ -243,7 +217,7 @@
         if (!success) throw new Error(res.d.message || 'Request failed');
         f.reset();
         show(msg, 'ok', '<strong>Request sent.</strong> Thanks, ' + escapeHtml(name) +
-          '. I’ll review it and reply to <strong>' + escapeHtml(email) + '</strong> with your access code.');
+          '. Once I approve it, you’ll get an email at <strong>' + escapeHtml(email) + '</strong> with a link to the portfolio.');
       })
       .catch(function () {
         show(msg, 'err', 'Your request couldn’t be sent right now. Please try again, or email me at ' +
@@ -253,22 +227,6 @@
         btn.disabled = false;
         btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Request access';
       });
-  });
-
-  /* Access code → unlock */
-  $('codeForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var msg = $('codeMsg');
-    var code = $('accessCode').value;
-    if (!code.trim()) return show(msg, 'err', 'Enter the access code you received by email.');
-    PortfolioAccess.tryCode(code).then(function (ok) {
-      if (ok) {
-        show(msg, 'ok', 'Access granted. Opening the portfolio…');
-        setTimeout(function () { location.replace('./'); }, 500);
-      } else {
-        show(msg, 'err', 'That code isn’t valid. Check the email you received, or request access above.');
-      }
-    });
   });
 
   function escapeHtml(s) {
