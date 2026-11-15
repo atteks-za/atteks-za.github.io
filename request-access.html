@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Request access | Athenkosi Pepengweni</title>
+  <meta name="description" content="This portfolio is shared by request. Tell me your name and organisation to request access."/>
+  <meta name="robots" content="noindex"/>
+  <meta name="color-scheme" content="light dark"/>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css?v=20260926c"/>
+
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      if (t === 'dark') document.documentElement.classList.add('dark');
+    })();
+  </script>
+  <script src="access-gate.js?v=20261115"></script>
+  <script>
+    /* Already approved in this browser? Go straight to the portfolio. */
+    if (window.PortfolioAccess && PortfolioAccess.granted()) location.replace('./');
+  </script>
+
+  <style>
+    .ra-page {
+      min-height: 100vh; display: grid; place-items: center; padding: 40px 16px;
+      background:
+        radial-gradient(900px 500px at 10% -10%, var(--primary-soft), transparent 60%),
+        linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0 / 32px 32px,
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / 32px 32px,
+        var(--bg);
+    }
+    .ra-wrap { width: 100%; max-width: 980px; display: grid; grid-template-columns: 1fr 1.15fr; gap: 28px; align-items: start; }
+    .ra-intro { padding-top: 12px; }
+    .ra-intro .brand { margin-bottom: 28px; color: var(--text); }
+    .ra-intro h1 { font-family: var(--font-head); font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.12; margin: 8px 0 14px; }
+    .ra-intro p { color: var(--text-2); line-height: 1.65; }
+    .ra-steps { list-style: none; margin: 24px 0 0; display: grid; gap: 12px; }
+    .ra-steps li { display: flex; gap: 12px; align-items: flex-start; color: var(--text-2); font-size: .95rem; }
+    .ra-steps span {
+      flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+      font: 600 .8rem var(--font-mono); color: var(--primary); background: var(--primary-soft); border: 1px solid var(--border-2);
+    }
+    .ra-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      box-shadow: var(--shadow-lg); padding: 28px;
+    }
+    .ra-card h2 { font-family: var(--font-head); font-size: 1.3rem; margin-bottom: 4px; }
+    .ra-card .sub { color: var(--muted); font-size: .92rem; margin-bottom: 20px; }
+    .field { display: grid; gap: 6px; margin-bottom: 14px; }
+    .field label { font-size: .85rem; font-weight: 600; color: var(--text-2); }
+    .field label em { font-style: normal; font-weight: 400; color: var(--muted); }
+    .field input, .field textarea {
+      width: 100%; font: inherit; color: var(--text); background: var(--surface-2);
+      border: 1px solid var(--border-2); border-radius: var(--radius-sm); padding: 11px 13px; transition: border-color .15s, box-shadow .15s;
+    }
+    .field textarea { min-height: 92px; resize: vertical; }
+    .field input:focus, .field textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .ra-card .btn { width: 100%; justify-content: center; }
+    .ra-card .btn[disabled] { opacity: .65; cursor: wait; transform: none; }
+    .msg { display: none; margin-top: 14px; padding: 12px 14px; border-radius: var(--radius-sm); font-size: .92rem; line-height: 1.5; }
+    .msg.show { display: block; }
+    .msg.ok { background: color-mix(in srgb, var(--c-sysadmin) 12%, transparent); color: var(--text); border: 1px solid color-mix(in srgb, var(--c-sysadmin) 40%, transparent); }
+    .msg.err { background: color-mix(in srgb, var(--c-security) 10%, transparent); color: var(--text); border: 1px solid color-mix(in srgb, var(--c-security) 40%, transparent); }
+    .divider { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: .8rem; margin: 24px 0 16px; }
+    .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+    .code-row { display: flex; gap: 10px; }
+    .code-row input {
+      flex: 1; min-width: 0; font: 500 .95rem var(--font-mono); letter-spacing: .04em; text-transform: uppercase;
+      color: var(--text); background: var(--surface-2); border: 1px solid var(--border-2); border-radius: var(--radius-sm); padding: 11px 13px;
+    }
+    .code-row input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
+    .code-row .btn { width: auto; flex: none; }
+    .ra-foot { margin-top: 18px; text-align: center; color: var(--muted); font-size: .85rem; }
+    .ra-foot a { color: var(--primary); }
+    .ra-theme { position: fixed; top: 16px; right: 16px; }
+    @media (max-width: 820px) {
+      .ra-wrap { grid-template-columns: 1fr; }
+      .ra-intro { padding-top: 0; }
+    }
+    @media (max-width: 480px) {
+      .row2 { grid-template-columns: 1fr; gap: 0; }
+      .ra-card { padding: 20px; }
+      .code-row { flex-direction: column; }
+      .code-row .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<button class="icon-btn ra-theme" type="button" id="themeBtn" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+
+<main class="ra-page">
+  <div class="ra-wrap">
+    <section class="ra-intro">
+      <a class="brand" href="request-access.html" aria-label="Athenkosi Pepengweni">
+        <span class="brand-mark">AP</span>
+        <span class="brand-name">Athenkosi Pepengweni</span>
+      </a>
+      <p class="eyebrow"><i class="fa-solid fa-lock"></i> Private portfolio</p>
+      <h1>This portfolio is shared by request.</h1>
+      <p>
+        I’m an IT infrastructure professional working across enterprise networking, Windows Server,
+        AWS, DevOps and cybersecurity. To view my projects and certifications, tell me who you are
+        and which organisation you’re with.
+      </p>
+      <ol class="ra-steps">
+        <li><span>1</span> Send a request with your name and organisation.</li>
+        <li><span>2</span> I review it and reply to your email with an access code.</li>
+        <li><span>3</span> Enter the code below, or open the link I send you.</li>
+      </ol>
+    </section>
+
+    <section class="ra-card" aria-labelledby="formTitle">
+      <h2 id="formTitle">Request access</h2>
+      <p class="sub">Your request goes straight to my inbox.</p>
+
+      <form id="requestForm" novalidate>
+        <div class="row2">
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required maxlength="120"/>
+          </div>
+          <div class="field">
+            <label for="organisation">Organisation</label>
+            <input id="organisation" name="organisation" type="text" autocomplete="organization" required maxlength="160"/>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="email">Work email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required maxlength="200"/>
+          </div>
+          <div class="field">
+            <label for="role">Your role <em>(optional)</em></label>
+            <input id="role" name="role" type="text" autocomplete="organization-title" maxlength="120" placeholder="e.g. Recruiter, IT Manager"/>
+          </div>
+        </div>
+        <div class="field">
+          <label for="reason">Why you’d like to view it <em>(optional)</em></label>
+          <textarea id="reason" name="reason" maxlength="1500" placeholder="e.g. Reviewing candidates for a network engineer role"></textarea>
+        </div>
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+        <button class="btn btn-primary" type="submit" id="submitBtn"><i class="fa-solid fa-paper-plane"></i> Request access</button>
+        <div class="msg" id="formMsg" role="status" aria-live="polite"></div>
+      </form>
+
+      <div class="divider">Already approved?</div>
+      <form id="codeForm" novalidate>
+        <label class="field" for="accessCode" style="margin-bottom:8px"><span style="font-size:.85rem;font-weight:600;color:var(--text-2)">Access code</span></label>
+        <div class="code-row">
+          <input id="accessCode" type="text" autocomplete="off" spellcheck="false" placeholder="PEPS-XXXXXXXX" aria-label="Access code"/>
+          <button class="btn btn-ghost" type="submit"><i class="fa-solid fa-unlock"></i> Unlock</button>
+        </div>
+        <div class="msg" id="codeMsg" role="status" aria-live="polite"></div>
+      </form>
+
+      <p class="ra-foot">Questions? <a href="mailto:athenkosi.peps@gmail.com">athenkosi.peps@gmail.com</a></p>
+    </section>
+  </div>
+</main>
+
+<script>
+(function () {
+  var OWNER_EMAIL = 'athenkosi.peps@gmail.com';
+  var ENDPOINT = 'https://formsubmit.co/ajax/' + OWNER_EMAIL;
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  function show(el, kind, html) {
+    el.className = 'msg show ' + kind;
+    el.innerHTML = html;
+  }
+
+  /* Theme toggle (same storage key as the main site) */
+  function syncIcon() {
+    var dark = document.documentElement.classList.contains('dark');
+    $('themeBtn').innerHTML = '<i class="fa-solid fa-' + (dark ? 'sun' : 'moon') + '"></i>';
+  }
+  $('themeBtn').addEventListener('click', function () {
+    var dark = document.documentElement.classList.toggle('dark');
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+    syncIcon();
+  });
+  syncIcon();
+
+  /* Arrived from an invite link with a wrong or outdated code */
+  if (new URLSearchParams(location.search).get('invalid')) {
+    show($('codeMsg'), 'err', 'That access link is invalid or has expired. Request access again or enter the code you received.');
+  }
+
+  /* Access request → email to the owner */
+  $('requestForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target;
+    var msg = $('formMsg');
+    var name = f.name.value.trim();
+    var org = f.organisation.value.trim();
+    var email = f.email.value.trim();
+
+    if (!name || !org || !email) {
+      return show(msg, 'err', 'Please enter your name, organisation and email.');
+    }
+    if (!f.email.checkValidity()) {
+      return show(msg, 'err', 'Please enter a valid email address so I can reply with your access code.');
+    }
+    if (f._honey.value) return; // bot
+
+    var btn = $('submitBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending…';
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: 'Portfolio access request: ' + name + ' (' + org + ')',
+        _template: 'table',
+        _replyto: email,
+        _captcha: 'false',
+        'Request': name + ' from ' + org + ' is requesting to view your portfolio.',
+        'Name': name,
+        'Organisation': org,
+        'Email': email,
+        'Role': f.role.value.trim() || '-',
+        'Reason': f.reason.value.trim() || '-',
+        'Requested at': new Date().toString(),
+        'To approve': 'Reply to this email with the access code or invite link from your ACCESS-CODE.txt file.'
+      })
+    })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (res) {
+        var success = res.ok && (res.d.success === true || res.d.success === 'true');
+        if (!success) throw new Error(res.d.message || 'Request failed');
+        f.reset();
+        show(msg, 'ok', '<strong>Request sent.</strong> Thanks, ' + escapeHtml(name) +
+          '. I’ll review it and reply to <strong>' + escapeHtml(email) + '</strong> with your access code.');
+      })
+      .catch(function () {
+        show(msg, 'err', 'Your request couldn’t be sent right now. Please try again, or email me at ' +
+          '<a href="mailto:' + OWNER_EMAIL + '?subject=' + encodeURIComponent('Portfolio access request') + '">' + OWNER_EMAIL + '</a>.');
+      })
+      .then(function () {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Request access';
+      });
+  });
+
+  /* Access code → unlock */
+  $('codeForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var msg = $('codeMsg');
+    var code = $('accessCode').value;
+    if (!code.trim()) return show(msg, 'err', 'Enter the access code you received by email.');
+    PortfolioAccess.tryCode(code).then(function (ok) {
+      if (ok) {
+        show(msg, 'ok', 'Access granted. Opening the portfolio…');
+        setTimeout(function () { location.replace('./'); }, 500);
+      } else {
+        show(msg, 'err', 'That code isn’t valid. Check the email you received, or request access above.');
+      }
+    });
+  });
+
+  function escapeHtml(s) {
+    return s.replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+})();
+</script>
+</body>
+</html>
