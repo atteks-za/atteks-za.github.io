@@ -34,32 +34,6 @@
   color-scheme: light;
 }
 
-html.dark {
-  --bg:        #070b14;
-  --bg-alt:    #0b1120;
-  --surface:   #0f172a;
-  --surface-2: #111c33;
-  --text:      #e2e8f0;
-  --text-2:    #cbd5e1;
-  --muted:     #94a3b8;
-  --border:    rgba(148, 163, 184, 0.14);
-  --border-2:  rgba(148, 163, 184, 0.26);
-  --primary:   #60a5fa;
-  --primary-2: #22d3ee;
-  --primary-soft: rgba(96, 165, 250, 0.1);
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow:    0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
-  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.55);
-  --grid-line: rgba(148, 163, 184, 0.06);
-
-  --c-cloud:      #38bdf8;
-  --c-networking: #fbbf24;
-  --c-security:   #f87171;
-  --c-devops:     #a78bfa;
-  --c-sysadmin:   #34d399;
-  color-scheme: dark;
-}
-
 /* ─────────────────────────────────────────────
    Base
    ───────────────────────────────────────────── */
@@ -119,7 +93,6 @@ kbd {
   background: linear-gradient(135deg, var(--primary), var(--primary-2)); color: #fff;
   box-shadow: 0 6px 20px color-mix(in srgb, var(--primary) 35%, transparent);
 }
-html.dark .btn-primary { color: #06101f; }
 .btn-primary:hover { box-shadow: 0 10px 28px color-mix(in srgb, var(--primary) 45%, transparent); }
 .btn-ghost { background: var(--surface); color: var(--text); border-color: var(--border-2); }
 .btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
@@ -410,7 +383,6 @@ mark { background: color-mix(in srgb, var(--primary) 22%, transparent); color: i
 }
 .pager button:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
 .pager button[aria-current="page"] { background: var(--primary); border-color: var(--primary); color: #fff; }
-html.dark .pager button[aria-current="page"] { color: #06101f; }
 .pager button:disabled { opacity: 0.4; cursor: default; }
 
 /* ─────────────────────────────────────────────

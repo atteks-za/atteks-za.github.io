@@ -19,27 +19,7 @@ function toast(msg) {
   toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
 }
 
-/* ── Theme: follows the OS until the visitor picks one ── */
-const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-function savedTheme() { try { return localStorage.getItem('theme'); } catch (e) { return null; } }
-function applyTheme(theme) {
-  root.classList.toggle('dark', theme === 'dark');
-  const label = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
-  $$('.theme-toggle').forEach(b => {
-    b.innerHTML = '<i class="fa-solid fa-' + (theme === 'dark' ? 'sun' : 'moon') + '"></i>';
-    b.setAttribute('aria-label', label);
-    b.title = label;
-  });
-  $('meta[name="theme-color"]').content = theme === 'dark' ? '#070b14' : '#f8fafc';
-}
-function toggleTheme() {
-  const next = root.classList.contains('dark') ? 'light' : 'dark';
-  try { localStorage.setItem('theme', next); } catch (e) {}
-  applyTheme(next);
-}
-applyTheme(root.classList.contains('dark') ? 'dark' : 'light');
-$$('.theme-toggle').forEach(b => b.addEventListener('click', toggleTheme));
-darkQuery.addEventListener('change', e => { if (!savedTheme()) applyTheme(e.matches ? 'dark' : 'light'); });
+/* ── Light mode only ── */
 requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add('theme-ready')));
 
 /* ── Copy email ─────────────────────────────── */
@@ -315,7 +295,6 @@ const commands = [
   { group: 'Navigate', label: 'Projects', icon: 'fa-layer-group', run: go('#projects') },
   { group: 'Navigate', label: 'Certifications', icon: 'fa-certificate', run: go('#certifications') },
   { group: 'Navigate', label: 'Contact', icon: 'fa-paper-plane', run: go('#contact') },
-  { group: 'Actions', label: 'Toggle light / dark mode', icon: 'fa-circle-half-stroke', run: toggleTheme },
   { group: 'Actions', label: 'Copy email address', icon: 'fa-copy', run: copyEmail },
   { group: 'Actions', label: 'Download CV', icon: 'fa-file-arrow-down', run: open(LINKS.cv) },
   { group: 'Actions', label: 'Open LinkedIn', icon: 'fa-brands fa-linkedin-in', run: open(LINKS.linkedin) },
